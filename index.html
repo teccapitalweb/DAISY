@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BB — Donde la moda se convierte en fuerza</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">Envío gratis en compras mayores a $1,500 MXN &nbsp;·&nbsp; Nueva colección Primavera 2026</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <ul class="nav-links">
+    <li><a class="active" onclick="filterProducts('all');setCatActive(document.querySelector('.cat-btn'));setNavActive(this)">Todo</a></li>
+    <li><a onclick="filterProducts('vestidos');setNavActive(this);document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Vestidos</a></li>
+    <li><a onclick="filterProducts('tops');setNavActive(this);document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Tops</a></li>
+    <li><a onclick="filterProducts('blazers');setNavActive(this);document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Blazers</a></li>
+    <li><a onclick="filterProducts('jeans');setNavActive(this);document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Jeans</a></li>
+    <li><a onclick="filterProducts('abrigos');setNavActive(this);document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Abrigos</a></li>
+  </ul>
+  <div class="logo-wrap">
+    <img src="assets/img/logo.jpg" alt="BB — Daisy Moda">
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn" onclick="toggleSearch()">&#x2315; Buscar</button>
+    <button class="nav-btn" onclick="toggleCart()">Bolsa <span class="badge" id="cart-badge">0</span></button>
+  </div>
+</nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar" id="search-bar">
+  <div class="search-inner">
+    <input class="search-input" id="search-input" placeholder="Buscar prendas..." oninput="searchProducts(this.value)">
+    <button class="search-close" onclick="toggleSearch()">&#x2715;</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <span class="hero-badge">Nueva colección</span>
+    <img src="assets/img/Vestido midi de lino con cinturón.webp" alt="Colección BB">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Primavera · Verano 2026</p>
+    <h1 class="hero-title">Moda que<br><em>te define.</em></h1>
+    <p class="hero-slogan">Donde la moda se convierte en fuerza.</p>
+    <p class="hero-desc">Piezas únicas para la mujer contemporánea. Tejidos premium, siluetas modernas y un estilo que trasciende temporadas.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-dark" onclick="document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Ver colección</button>
+      <button class="btn btn-light" onclick="filterProducts('vestidos');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Vestidos</button>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY BAR -->
+<div class="cat-bar" id="coleccion">
+  <button class="cat-btn active" onclick="filterProducts('all');setCatActive(this)">Todo</button>
+  <button class="cat-btn" onclick="filterProducts('vestidos');setCatActive(this)">Vestidos</button>
+  <button class="cat-btn" onclick="filterProducts('tops');setCatActive(this)">Tops &amp; Camisas</button>
+  <button class="cat-btn" onclick="filterProducts('blazers');setCatActive(this)">Blazers</button>
+  <button class="cat-btn" onclick="filterProducts('jeans');setCatActive(this)">Jeans &amp; Pantalones</button>
+  <button class="cat-btn" onclick="filterProducts('abrigos');setCatActive(this)">Chaquetas &amp; Abrigos</button>
+</div>
+
+<!-- SECTION HEADER -->
+<div class="sec-header">
+  <p class="sec-eyebrow">Colección 2026</p>
+  <h2 class="sec-title">Nuestras <em>piezas</em></h2>
+</div>
+
+<!-- PRODUCT GRID (generado por script.js) -->
+<div class="product-grid" id="product-grid"></div>
+
+<!-- EDITORIAL -->
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="assets/img/Blazer doble botonadura.jpg" alt="Editorial BB">
+  </div>
+  <div class="editorial-text">
+    <p class="editorial-tag">Filosofía de marca</p>
+    <h3 class="editorial-title">Fuerza que<br><em>se viste.</em></h3>
+    <p class="editorial-p">En BB creemos que la moda es una extensión de quien eres. Cada pieza está pensada para acompañarte con elegancia, sin sacrificar comodidad ni carácter.</p>
+    <button class="btn-cream" onclick="filterProducts('all');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Explorar todo</button>
+  </div>
+</div>
+
+<!-- BANNER STRIP -->
+<div class="banner-strip">
+  <div class="banner-item" onclick="filterProducts('vestidos');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">
+    <img src="assets/img/Vestido midi de lino con cinturón.webp" alt="Vestidos">
+    <div class="banner-label">
+      <p class="banner-cat">Colección</p>
+      <p class="banner-name">Vestidos</p>
+      <p class="banner-price">Desde $999 MXN</p>
+    </div>
+  </div>
+  <div class="banner-item" onclick="filterProducts('blazers');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">
+    <img src="assets/img/Blazer oversize.webp" alt="Blazers">
+    <div class="banner-label">
+      <p class="banner-cat">Colección</p>
+      <p class="banner-name">Blazers</p>
+      <p class="banner-price">Desde $999 MXN</p>
+    </div>
+  </div>
+  <div class="banner-item" onclick="filterProducts('abrigos');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">
+    <img src="assets/img/Trench coat con cinturón.webp" alt="Abrigos">
+    <div class="banner-label">
+      <p class="banner-cat">Colección</p>
+      <p class="banner-name">Abrigos</p>
+      <p class="banner-price">Desde $499 MXN</p>
+    </div>
+  </div>
+</div>
+
+<!-- PERKS -->
+<div class="perks">
+  <div class="perk">
+    <div class="perk-icon">&#x1F69A;</div>
+    <p class="perk-title">Envío gratis</p>
+    <p class="perk-text">En compras mayores a $1,500 MXN</p>
+  </div>
+  <div class="perk">
+    <div class="perk-icon">&#x21A9;</div>
+    <p class="perk-title">Cambios fáciles</p>
+    <p class="perk-text">30 días para cambios sin complicaciones</p>
+  </div>
+  <div class="perk">
+    <div class="perk-icon">&#x1F512;</div>
+    <p class="perk-title">Pago seguro</p>
+    <p class="perk-text">Transacciones 100% protegidas</p>
+  </div>
+  <div class="perk">
+    <div class="perk-icon">&#x1F4AC;</div>
+    <p class="perk-title">Atención directa</p>
+    <p class="perk-text">Respondemos por WhatsApp al instante</p>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h3 class="nl-title">Sé la primera en <em>saber.</em></h3>
+  <p class="nl-sub">Nuevas llegadas, ofertas exclusivas y lookbooks directo a tu correo.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="tu@correo.com">
+    <button class="nl-submit" onclick="alert('¡Gracias! Te tendremos al tanto.')">Suscribirme</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.jpg" alt="BB" class="footer-logo">
+      <p class="footer-tagline">Donde la moda se convierte en fuerza.</p>
+      <p>Moda femenina con carácter. Piezas pensadas para acompañarte en cada momento con elegancia y comodidad.</p>
+      <div class="footer-socials">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61575818279014" target="_blank">Facebook</a>
+        <a class="social-link" href="https://www.instagram.com/odonteckconsulting/" target="_blank">Instagram</a>
+        <a class="social-link" href="https://wa.me/522381479365" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Colección</h4>
+      <ul>
+        <li><a href="#" onclick="filterProducts('vestidos');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Vestidos</a></li>
+        <li><a href="#" onclick="filterProducts('tops');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Tops &amp; Camisas</a></li>
+        <li><a href="#" onclick="filterProducts('blazers');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Blazers</a></li>
+        <li><a href="#" onclick="filterProducts('jeans');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Jeans</a></li>
+        <li><a href="#" onclick="filterProducts('abrigos');document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Abrigos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Información</h4>
+      <ul>
+        <li><a href="#">Sobre nosotros</a></li>
+        <li><a href="#">Guía de tallas</a></li>
+        <li><a href="#">Política de cambios</a></li>
+        <li><a href="#">Envíos</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/522381479365" target="_blank">+52 238 147 9365</a></li>
+        <li><a href="mailto:odontckconsul@gmail.com">odontckconsul@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61575818279014" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/odonteckconsulting/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 BB — Daisy Moda. Todos los derechos reservados.</p>
+    <p class="footer-copy">Hecho con amor en México 🌸</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div class="modal-img"><img id="modal-img" src="" alt=""></div>
+    <div class="modal-body">
+      <p class="modal-cat" id="modal-cat"></p>
+      <h2 class="modal-name" id="modal-name"></h2>
+      <p class="modal-price" id="modal-price"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <p class="size-label">Selecciona tu talla</p>
+      <div class="modal-sizes">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn active" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+      </div>
+      <button class="modal-wh" id="modal-wh-btn">&#x1F4AC; Pedir por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Mi bolsa</h3>
+    <button class="cart-close" onclick="toggleCart()">&#x2715;</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty"><p>Tu bolsa está vacía</p></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-total">
+      <span class="ct-label">Total</span>
+      <span class="ct-value" id="cart-total-val">$0 MXN</span>
+    </div>
+    <button class="cart-wh" id="cart-wh-btn">&#x1F4AC; Finalizar por WhatsApp</button>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<button class="wh-float" onclick="window.open('https://wa.me/522381479365?text=Hola!%20Visité%20la%20tienda%20BB%20y%20me%20gustaría%20más%20información.','_blank')">
+  &#x1F4AC; Escríbenos
+</button>
+
+<!-- SCRIPTS -->
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
