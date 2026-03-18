@@ -308,8 +308,107 @@
       <span class="ct-value" id="cart-total-val">$0 MXN</span>
     </div>
     <div class="cart-ctas">
+      <button class="cart-checkout" onclick="openCheckout()">Pagar ahora</button>
       <button class="cart-wh" id="cart-wh-btn">&#x1F4AC; Finalizar por WhatsApp</button>
       <button class="cart-continue" onclick="toggleCart()">Seguir comprando</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- CHECKOUT OVERLAY -->
+<div class="checkout-overlay" id="checkout-overlay" onclick="closeCheckout(event)">
+  <div class="checkout-sheet">
+    <div class="checkout-topbar">
+      <div>
+        <p class="checkout-kicker">Checkout seguro</p>
+        <h3>Finalizar compra</h3>
+      </div>
+      <button class="checkout-close" onclick="closeCheckout()" aria-label="Cerrar">&#x2715;</button>
+    </div>
+
+    <div class="checkout-layout">
+      <section class="checkout-main">
+        <div class="checkout-card">
+          <div class="checkout-card-head">
+            <h4>Información de contacto</h4>
+            <span>Entrega rápida en México</span>
+          </div>
+          <div class="checkout-grid">
+            <div class="field full">
+              <label for="co-name">Nombre completo</label>
+              <input id="co-name" type="text" placeholder="Tu nombre">
+            </div>
+            <div class="field">
+              <label for="co-email">Correo electrónico</label>
+              <input id="co-email" type="email" placeholder="nombre@correo.com">
+            </div>
+            <div class="field">
+              <label for="co-phone">Teléfono</label>
+              <input id="co-phone" type="tel" placeholder="+52 238...">
+            </div>
+            <div class="field full">
+              <label for="co-address">Dirección de envío</label>
+              <input id="co-address" type="text" placeholder="Calle, número, colonia">
+            </div>
+            <div class="field">
+              <label for="co-city">Ciudad</label>
+              <input id="co-city" type="text" placeholder="Tehuacán">
+            </div>
+            <div class="field">
+              <label for="co-state">Estado</label>
+              <input id="co-state" type="text" placeholder="Puebla">
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-card">
+          <div class="checkout-card-head">
+            <h4>Método de pago</h4>
+            <span>Visual listo para Stripe, PayPal y Mercado Pago</span>
+          </div>
+          <div class="method-grid">
+            <button class="method-card active" data-method="stripe" onclick="selectPayMethod('stripe', this)">
+              <strong>Stripe</strong>
+              <small>Tarjeta · Apple Pay · Google Pay</small>
+            </button>
+            <button class="method-card" data-method="paypal" onclick="selectPayMethod('paypal', this)">
+              <strong>PayPal</strong>
+              <small>Pago rápido con cuenta PayPal</small>
+            </button>
+            <button class="method-card" data-method="mercadopago" onclick="selectPayMethod('mercadopago', this)">
+              <strong>Mercado Pago</strong>
+              <small>Ideal para México</small>
+            </button>
+            <button class="method-card" data-method="whatsapp" onclick="selectPayMethod('whatsapp', this)">
+              <strong>WhatsApp</strong>
+              <small>Pedido manual y confirmación directa</small>
+            </button>
+          </div>
+          <div class="pay-badges">
+            <span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span><span>Google Pay</span>
+          </div>
+          <p class="checkout-note" id="checkout-method-note">Se abrirá tu checkout de Stripe cuando conectes tu enlace o integración.</p>
+        </div>
+      </section>
+
+      <aside class="checkout-side">
+        <div class="checkout-card sticky">
+          <div class="checkout-card-head">
+            <h4>Resumen del pedido</h4>
+            <span id="checkout-item-count">0 artículos</span>
+          </div>
+          <div class="checkout-items" id="checkout-items"></div>
+          <div class="checkout-totals">
+            <div><span>Subtotal</span><strong id="checkout-subtotal">$0 MXN</strong></div>
+            <div><span>Envío</span><strong id="checkout-shipping">Gratis</strong></div>
+            <div class="grand"><span>Total</span><strong id="checkout-total">$0 MXN</strong></div>
+          </div>
+          <button class="checkout-pay-btn" id="checkout-pay-btn" onclick="proceedPayment()">Pagar con Stripe</button>
+          <button class="checkout-alt-btn" onclick="sendCheckoutByWhatsApp()">Enviar pedido por WhatsApp</button>
+          <p class="checkout-disclaimer">Las pasarelas reales necesitan tus enlaces o credenciales activas para cobrar en vivo.</p>
+        </div>
+      </aside>
     </div>
   </div>
 </div>

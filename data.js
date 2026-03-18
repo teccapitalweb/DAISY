@@ -27,3 +27,22 @@ const contacto = {
   instagram: "https://www.instagram.com/odonteckconsulting/",
   email: "odontckconsul@gmail.com"
 };
+
+
+const paymentConfig = {
+  stripe: {
+    label: "Pagar con Stripe",
+    note: "Se abrirá tu checkout de Stripe cuando conectes tu enlace o integración.",
+    url: ""
+  },
+  paypal: {
+    label: "Pagar con PayPal",
+    note: "Puedes conectar aquí tu link o botón oficial de PayPal.",
+    url: ""
+  },
+  mercadopago: {
+    label: "Pagar con Mercado Pago",
+    note: "Mercado Pago es una gran opción si venderás principalmente en México.",
+    url: ""
+  }
+};
