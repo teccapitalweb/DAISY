@@ -18,7 +18,9 @@
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">
-    <img src="assets/img/logo.jpg" alt="BB Daisy Moda">
+    <img src="assets/img/logo.jpg" alt="BB Daisy Moda"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text" style="display:none;font-size:22px;font-weight:700;letter-spacing:-.03em;color:#1D1D1F;">BB</span>
   </div>
   <ul class="nav-links">
     <li><a class="active" onclick="filterProducts('all');setCatActive(document.querySelector('.cat-btn'))">Todo</a></li>
@@ -215,7 +217,9 @@
 <footer>
   <div class="footer-top">
     <div class="footer-col footer-brand">
-      <img src="assets/img/logo.jpg" alt="BB Daisy Moda" class="footer-logo">
+      <img src="assets/img/logo.jpg" alt="BB Daisy Moda" class="footer-logo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span style="display:none;font-size:20px;font-weight:700;letter-spacing:-.03em;color:#1D1D1F;margin-bottom:10px;display:block;">BB</span>
       <p class="footer-tagline">Donde la moda se convierte en fuerza.</p>
       <p class="footer-brand-desc">Moda femenina con carácter.<br>Tehuacán, Puebla. México.</p>
       <div class="footer-socials">
